@@ -1,6 +1,7 @@
 package com.dsp.assignments;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 public class Assignment1 {
 	public static void que1(String a, String b) {
@@ -198,21 +199,75 @@ public class Assignment1 {
 	}
 
 	public static void que17() {
+		int evenSum =0;
+		int oddSum =0;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter length: ");
+		int n = sc.nextInt();
+	
+		int[] arr = new int[n];
+		for (int i = 0; i < n; i++) {
+			int temp = sc.nextInt();
+			arr[i] = temp;
+		}
+		for(int i : arr) {
+			if(i % 2 ==0) {
+				evenSum+=i;
+			}
+			else oddSum+=i;
+		}
+		System.out.println("Sum of even no: "+evenSum);
+		System.out.println("Sum of odd no: "+oddSum);
+		
 	}
 
-	public static void que18() {
+	public static void que18(String a) {
+		int count = 0;
+		for (int i = 0; i < a.length(); i++) {
+			if (a.charAt(i) == 65 || a.charAt(i) == 97) {
+				count++;
+			}
+		}
+
+		System.out.println("a occured is: "+count+" times");
 	}
 
-	public static void que19() {
+	public static void que19(int year) {
+		if (year % 4 == 0 || (year % 100 == 0 && year % 400 == 0)) {
+			System.out.println(year + " is a leap year");
+		} else {
+			System.out.println(year + " is not a leap year");
+		}
 	}
 
-	public static void que20() {
+	public static void que20(int[] arr) {
+		int[] array = bubbleSort(arr);
+		System.out.println("Smallest in array : "+array[0]+" ,Largest in array is: "+array[array.length-1]);
 	}
 
-	public static void que21() {
+	public static void que21(int[] array) {
+		System.out.println("\n");
+		Map<Integer, Integer> map = new HashMap<>();
+
+		for (int a : array) {
+			if (map.containsKey(a)) {
+				map.put(a, map.get(a) + 1);
+			} else {
+				map.put(a, 1);
+			}
+		}
+
+		for (Entry<Integer, Integer> m : map.entrySet()) {
+			if (m.getValue() == 1) {
+				System.out.print(m.getKey()+", ");
+			}
+		}
 	}
 
-	public static void que22() {
+	public static void que22(int[] array) {
+		int[] arr = bubbleSort(array);
+		
+		System.out.println("\n Second largest in array is : "+arr[array.length-2]);
 	}
 
 	public static void que46(int[] array, int num) {
@@ -230,6 +285,50 @@ public class Assignment1 {
 			}
 
 		}
+	}
+	public static void que24(int[] arr) {
+		System.out.println("Even numbers is :");
+		for(int i: arr) {
+			if(i%2==0) {
+				System.out.println(i+",");
+			}
+		}
+		System.out.println("Even numbers is :");
+		for(int i: arr) {
+			if(i%2!=0) {
+				System.out.println(i+",");
+			}
+		}
+	}
+	
+	public static void que25(int[] arr, int[] arr2) {
+		
+
+		
+		
+	}
+	static int[] bubbleSort(int[] arr) {
+//		System.out.println("Before sorting-");
+//		for(int value : arr) {
+//			
+//			System.out.print(value+" ");
+//		}
+		int n = arr.length;
+		for(int i = 0; i<n-1; i++) {
+			for(int j = 0; j< n-i -1; j++) {
+				if(arr[j]>arr[j+1]) {
+					int temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+			}
+		}
+//		System.out.println("After sorting-");
+//		for(int value : arr) {
+//			
+//			System.out.print(value+" ");
+//		}
+		return arr;
 	}
 
 	public static void main(String[] args) {
@@ -266,20 +365,32 @@ public class Assignment1 {
 //		15. WAP to read a number (28156437) and it should print digits order wise(12345678)
 //			que15();
 //		16. Take 10 integers from keyboard using loop and print their average value on the screen.
-		que16();
+//		que16();
 //		17. Write a program that reads a set of integers, and then prints the sum of the even and odd
 //		integers.
-		que17();
+//		que17();
 //		18. Determine and print the number of times the character ‘a’ appears in the input entered by the
 //		user.
+		que18("Capgeminiisagoodcompany");
 //		19. Java program to check leap year
+		que19(2001);
 //		20. Java Program to Find the Largest and Smallest Numbers From an Array of Random Numbers
+		que20(arr);
 //		21. Printing only not-repeated digits in the array.
+		que21(arr);
 //		22. Printing Second largest no. in the array.
+		que22(arr);
 //		23. Sorting the array without using built in sort methods. 4. Copy all the elements from one array to
 //		another array.
+		int sortedArray[] = bubbleSort(arr);
+		for(int v: sortedArray) {
+			System.out.print(v+",");
+		}
+		
 //		24. Printing Odd and Even no. from the array.
+		que24(arr);
 //		25. Merging 2 array into one array.
+		que25(arr, arr);
 //		26. Finding Prime Factors of a number
 //		27. Find Prime number within a given range or between two numbers.
 //		28. Find Strong number
@@ -303,7 +414,7 @@ public class Assignment1 {
 //		44. Write a Java program that checks if 2 array contains the same element.
 //		45. How do you shuffle an array in Java.
 //		46. Find the array pairs whose sum is equal to the given number.
-		que46(arr, 4);
+//		que46(arr, 4);
 //		47. Write a Java program to divide a string in n equal parts.
 //		48. Write a Java program to count and print all the duplicates in the input string.
 //		49. Write a Java program to check whether a given string starts with the contents of another string.

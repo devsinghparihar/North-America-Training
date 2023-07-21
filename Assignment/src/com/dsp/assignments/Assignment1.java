@@ -307,6 +307,141 @@ public class Assignment1 {
 		
 		
 	}
+	public static void que41(int numRows) {
+		  for (int i = 1; i <= numRows; i++) {
+	            
+	            for (int j = 1; j <= i; j++) {
+	                System.out.print(j + " ");
+	            }
+	            
+	            System.out.println();
+	        }
+	}
+	public static void que43() {
+		Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int userNumber = scanner.nextInt();
+
+        Random random = new Random();
+        int randomWeekdayNumber = random.nextInt(7) + 1;
+		
+		switch (randomWeekdayNumber) {
+        case 1:
+            System.out.println("Sunday");
+            break;
+        case 2:
+        	System.out.println("Monday");
+            break;
+        case 3:
+        	System.out.println("Tuesday");
+            break;
+        case 4:
+        	System.out.println("Wednesday");
+            break;
+        case 5:
+        	System.out.println("Thursday");
+            break;
+        case 6:
+        	System.out.println("friday");
+            break;
+        case 7:
+        	System.out.println("Saturday");
+            break;
+        default:
+            System.out.println( "Invalid weekday number");
+    }
+		
+	}
+	public static void que44(int[] array1, int[] array2) {
+		Arrays.sort(array1);
+        Arrays.sort(array2);
+        	boolean flag = false;
+        // Compare elements of both arrays
+        for (int i = 0; i < array1.length; i++) {
+            if (array1[i] != array2[i]) {
+                flag = false;
+                break;
+            }
+            else flag = true;
+        }
+        if(flag) System.out.println("both array are same");
+        else System.out.println("both are different");
+        
+
+        
+	}
+	public static void que45(int[] array) {
+		Random random = new Random();
+		System.out.println("");
+        for (int i = array.length - 1; i > 0; i--) {
+            int index = random.nextInt(i + 1);
+
+         
+            int temp = array[i];
+            array[i] = array[index];
+            array[index] = temp;
+        }
+        for(int i = 0; i<array.length; i++) {
+        	System.out.print(array[i]+",");
+        }
+        System.out.println("");
+	}
+//	public static void que46() {}
+	public static void que47(String inputString, int n) {
+		int length = inputString.length();
+        
+
+        int partSize = length / n;
+        String[] parts = new String[n];
+        int index = 0;
+
+        for (int i = 0; i < length; i += partSize) {
+            parts[index] = inputString.substring(i, i + partSize);
+            index++;
+        }
+        System.out.println("The string divided into " + n + " equal parts:");
+        for (String part : parts) {
+            System.out.println(part);
+        }
+
+	}
+	public static void que48(String a ) {
+		Set<Character> ss = new LinkedHashSet<Character>();
+		for(int i = 0; i<a.length(); i++) {
+			if(a.indexOf(a.charAt(i)) != a.lastIndexOf(a.charAt(i))) {
+				ss.add(a.charAt(i));
+			}
+		}
+		System.out.println(ss);
+	}
+	
+	public static void que49(String mainString, String checkString) {
+		 boolean startsWithContents = mainString.startsWith(checkString);
+
+	        if (startsWithContents) {
+	            System.out.println("The main string starts with the contents of the given string.");
+	        } else {
+	            System.out.println("The main string does not start with the contents of the given string.");
+	        }
+	}
+	public static void que52(int height) {
+		int currentNum = 1;
+        for (int i = 1; i <= height; i++) {
+            // Print spaces before the numbers
+            for (int j = 1; j <= height - i; j++) {
+                System.out.print("  ");
+            }
+
+        
+            for (int j = 1; j <= i; j++) {
+                System.out.print(currentNum + " ");
+                currentNum++;
+            }
+
+            System.out.println();
+        }
+	}
 	static int[] bubbleSort(int[] arr) {
 //		System.out.println("Before sorting-");
 //		for(int value : arr) {
@@ -407,20 +542,28 @@ public class Assignment1 {
 //		39. Capitalize the first and last character of each word of String.
 //		40. Find a greatest pair from Array.
 //		41. Write a program in Java to display the pattern like right angle triangle with a number.
+		que41(10);
 //		42. Write a Java program to check whether the first two characters present at the end
 //		of a given string.
 //		43. Write a Java program that keeps a number from the user and generates an integer between 1
 //		and 7 and displays the name of the weekday.
+//		que43();
 //		44. Write a Java program that checks if 2 array contains the same element.
+		que44(arr,arr);
 //		45. How do you shuffle an array in Java.
+		que45(arr);
 //		46. Find the array pairs whose sum is equal to the given number.
 //		que46(arr, 4);
 //		47. Write a Java program to divide a string in n equal parts.
+		que47("capgis", 2);
 //		48. Write a Java program to count and print all the duplicates in the input string.
+		que48("devsinghparihar");
 //		49. Write a Java program to check whether a given string starts with the contents of another string.
+		que49("dsp", "dfdspsingh");
 //		50. WAP to print Diamond pattern.
 //		51. WAP to print Pyramid of Character.
 //		52. WAP to print Pyramid of Number
+		que52(6);
 
 	}
 
